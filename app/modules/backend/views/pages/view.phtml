@@ -1,0 +1,34 @@
+<?php 
+use Phalcon\Tag;
+use App\Models\Images;
+use App\Models\CompanyDocuments;
+function displayField($field){
+  return $field === null || $field === '' ? '<kbd>(Пусто)</kbd>' : $field;
+}
+$publicDir = $this->getDI()->get('config')->application->backendAssets;
+?>
+
+<?= $this->getContent(); ?>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h2><?= $title; ?></h2>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+      	<?= Tag::linkTo(['admin/' . $this->dispatcher->getControllerName() . '/edit/' . $model->id, '<i class="fas fa-pencil-alt"></i>', 'class' => 'btn btn-sm btn-outline-secondary']) ?>
+		<?= Tag::linkTo(['admin/' . $this->dispatcher->getControllerName() . '/delete/' . $model->id, '<i class="fas fa-times"></i>', 'class' => 'btn btn-sm btn-outline-secondary']) ?>
+    </div>
+  </div>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-sm">
+
+  	<tr><td><?= $model->getLabels('id') ?></td><td><?= $model->id; ?></td></tr>
+    <tr><td><?= $model->getLabels('name') ?></td><td><?= displayField($model->name) ?></td></tr>
+
+	<tr><td><?= $model->getLabels('active') ?></td><td><?= $model->active ? 'Да' : 'Нет' ?></td></tr>
+	<tr><td><?= $model->getLabels('created_at') ?></td><td><?= displayField($model->created_at) ?></td></tr>
+	<tr><td><?= $model->getLabels('updated_at') ?></td><td><?= displayField($model->updated_at) ?></td></tr>
+
+</table>
+
+<?= $model->getText() ?>

@@ -1,0 +1,80 @@
+<?php
+use Phalcon\Tag;
+?>
+<?= $this->getContent(); ?>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h2><?= $crudTitle ?></h2>
+</div>
+
+<form method="POST" action="<?= !$form->edit ? '/admin/users/create' : '/admin/users/edit/' . $user->id ?>">
+	
+ 	<div class="form-group">
+ 		<?= $form->label('name'); ?>
+    	<?= $form->render('name', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите имя']); ?>
+	</div>
+	
+	<div class="form-group">
+	    <?= $form->label('surname'); ?>
+	    <?= $form->render('surname', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите фамилию']); ?>
+	 </div>
+
+	<div class="form-group">
+	    <?= $form->label('middlename'); ?>
+	    <?= $form->render('middlename', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите отчество']); ?>
+	</div>
+
+	<div class="form-group">
+	    <?= $form->label('email'); ?>
+	    <?= $form->render('email', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите Email']); ?>
+	    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+	</div>
+
+	<div class="form-group">
+	    <?= $form->label('second_email'); ?>
+	    <?= $form->render('second_email', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите дополнительный Email']); ?>
+	</div>
+	
+	<?php if(!$form->edit): ?>
+	<div class="form-group">
+	    <?= $form->label('password'); ?>
+	    <?= $form->render('password', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите пароль']); ?>
+	</div>
+	<?php endif; ?>
+
+	<div class="form-group">
+	    <?= $form->label('phone'); ?>
+	    <?= $form->render('phone', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите телефон']); ?>
+	</div>
+
+	<div class="form-group">
+	    <?= $form->label('second_phone'); ?>
+	    <?= $form->render('second_phone', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите дополнительный телефон']); ?>
+	</div>
+
+	<div class="form-group">
+	    <?= $form->label('gender'); ?>
+	    <?= $form->render('gender', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Выберите пол']); ?>
+	</div>
+
+	<div class="form-group">
+	    <?= $form->label('active'); ?>
+	    <?= $form->render('active', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Выберите активность']); ?>
+	</div>
+	
+	<div class="form-group">
+	    <?= $form->label('banned'); ?>
+	    <?= $form->render('banned', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите дополнительный Email']); ?>
+	</div>
+
+	<div class="form-group">
+	    <?= $form->label('email_confirmation'); ?>
+	    <?= $form->render('email_confirmation', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите дополнительный Email']); ?>
+	</div>
+	
+	<div class="form-group">
+	    <?= $form->label('role_id'); ?>
+	    <?= $form->render('role_id', ['maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите дополнительный Email']); ?>
+	</div>
+	<button type="submit" class="btn btn-primary">Сохранить</button>
+
+</form>

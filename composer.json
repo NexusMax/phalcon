@@ -1,0 +1,7 @@
+{
+    "require-dev": {
+        "snowair/phalcon-debugbar": "^1.2",
+        "phalcon/breadcrumbs": "^1.3",
+        "mattdanger/phalcon-table-sort": "dev-master"
+    }
+}

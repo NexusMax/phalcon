@@ -1,0 +1,37 @@
+<?php
+use Phalcon\Tag;
+use App\Models\Images;
+?>
+<?= $this->getContent(); ?>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h2><?= $crudTitle ?></h2>
+</div>
+
+<form method="POST" enctype="multipart/form-data" action="<?= !$model->edit ? '/admin/' . $this->dispatcher->getControllerName() . '/create' : '/admin/' . $this->dispatcher->getControllerName() . '/edit/' . $model->id ?>">
+
+
+ 	<div class="form-group">
+ 		<?= $model->label('name'); ?>
+    	<?= Tag::textField(['name', 'maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите название', 'required' => 'required']); ?>
+	</div>
+
+	<div class="form-group">
+ 		<?= $model->label('alias'); ?>
+    	<?= Tag::textField(['alias', 'maxlength' => 30, 'class' => 'form-control', 'placeholder' => 'Введите адрес']); ?>
+	</div>
+
+	<div class="form-group">
+	    <?= $model->label('text'); ?>
+	    <?= Tag::textArea(['text', 'class' => 'form-control', 'placeholder' => 'Описание']); ?>
+ 	</div>
+
+    <div class="form-group">
+		<?= $model->label('active'); ?>
+		<?= Tag::select(['active', [0 => 'Нет', 1 => 'Да'],
+    	    'class' => 'form-control'
+    	]); ?>
+    </div>
+
+	<button type="submit" class="btn btn-primary">Сохранить</button>
+
+</form>

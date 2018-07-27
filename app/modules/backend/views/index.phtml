@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf_token_name" content="<?php echo $this->security->getTokenKey() ?>">
+    <meta name="csrf_token" content="<?php echo $this->security->getToken() ?>">
+
+    <?= $this->tag->getTitle(); ?>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <?php $this->assets->outputCss(); ?>
+    <link rel="stylesheet" href="<?= $this->url->get('assets/admin/library/bootstrap-select/css/bootstrap-select.min.css')?>">
+    <link rel="stylesheet" href="<?= $this->url->get('assets/admin/library/bootstrap-tags/css/bootstrap-tags.css')?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/elfinder/2.1.40/css/elfinder.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/elfinder/2.1.40/css/theme.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" href="<?= $this->url->get('assets/admin/css/main.css')?>">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= $this->url->get('assets/admin/img/favicon.ico')?>"/>
+
+    
+</head>
+<body>
+
+    <?= $this->getContent(); ?>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="<?= $this->url->get('assets/admin/library/moment/js/moment.min.js')?>"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elfinder/2.1.40/js/elfinder.full.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.10.0/full/ckeditor.js"></script>
+    <script src="<?= $this->url->get('assets/admin/library/bootstrap-select/js/bootstrap-select.min.js')?>"></script>
+    <script src="<?= $this->url->get('assets/admin/library/bootstrap-tags/js/bootstrap-tags.js')?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script src="<?= $this->url->get('assets/admin/js/main.js')?>"></script>
+</body>
+</html>
