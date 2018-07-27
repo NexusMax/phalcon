@@ -230,3 +230,15 @@ a.uppy-Dashboard-poweredBy {
   right: 0;
 }
 /*fileupload*/
+
+.popup-gallery a{
+  display: inline-block;
+  margin: 0 5px;
+}
+.popup-gallery img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  object-fit: contain;
+}

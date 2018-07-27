@@ -4,6 +4,8 @@ use Phalcon\Validation;
 use Phalcon\Validation\Validator\Uniqueness;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Db\RawValue;
+use Phalcon\Mvc\View;
+use Phalcon\Di;
 
 use App\Models\Model;
 use App\Models\Posts;
@@ -165,8 +167,17 @@ class Galleries extends Model
 
     public function render($template = false)
     {
-        
-        echo '';
+        if(!$template){
+            $template = 'default';
+        }
+
+        $view = Di::getDefault()->get('view');
+        $view->imgUploadDir = $this->imgUploadDir;
+        if($this->gallery){
+            $view->gallery = $this->gallery->toArray();
+        }
+
+        return $view->getPartial('galleries/' . $template);
     }
 
 }
