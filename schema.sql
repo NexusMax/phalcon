@@ -1,8 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `phalcon_blog` /*!40100 DEFAULT CHARACTER SET ucs2 */;
+USE `phalcon_blog`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: phalcon_blog
 -- ------------------------------------------------------
--- Server version	5.7.16
+-- Server version 5.7.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -214,7 +216,7 @@ CREATE TABLE `pages` (
 
 LOCK TABLES `pages` WRITE;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
-INSERT INTO `pages` VALUES (1,'Страница 1','stranica-1','<h1 style=\"text-align:center\"><span style=\"color:#27ae60\"><span style=\"font-size:18px\">Страница 1</span></span></h1>\r\n\r\n<ul>\r\n	<li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">1</span></span></li>\r\n	<li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">2</span></span></li>\r\n	<li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">3</span></span></li>\r\n	<li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">4</span></span></li>\r\n</ul>\r\n',1,'2018-07-18 15:33:00','2018-07-18 15:33:00'),(2,'Страница 1','stranica-1','<h1 style=\"text-align:center\"><span style=\"color:#27ae60\"><span style=\"font-size:18px\">Страница 1</span></span></h1>\r\n\r\n<ul>\r\n	<li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">1</span></span></li>\r\n	<li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">2</span></span></li>\r\n	<li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">3</span></span></li>\r\n	<li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">4</span></span></li>\r\n</ul>\r\n\r\n<p><img alt=\"\" src=\"http://phalcon-blog/assets/img/categories/default.png\" style=\"float:right; height:50px; width:50px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>{{&quot;id&quot;:&quot;3&quot;, &quot;title&quot;:&quot;Image Gallery&quot;, &quot;class&quot;:&quot;gallery-3&quot;}}</p>\r\n',1,'2018-07-18 15:34:00','2018-07-26 17:25:00');
+INSERT INTO `pages` VALUES (1,'Страница 1','stranica-1','<h1 style=\"text-align:center\"><span style=\"color:#27ae60\"><span style=\"font-size:18px\">Страница 1</span></span></h1>\r\n\r\n<ul>\r\n <li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">1</span></span></li>\r\n <li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">2</span></span></li>\r\n <li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">3</span></span></li>\r\n <li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">4</span></span></li>\r\n</ul>\r\n',1,'2018-07-18 15:33:00','2018-07-18 15:33:00'),(2,'Страница 1','stranica-1','<h1 style=\"text-align:center\"><span style=\"color:#27ae60\"><span style=\"font-size:18px\">Страница 1</span></span></h1>\r\n\r\n<ul>\r\n <li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">1</span></span></li>\r\n <li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">2</span></span></li>\r\n <li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">3</span></span></li>\r\n <li><span style=\"color:#27ae60\"><span style=\"font-size:18px\">4</span></span></li>\r\n</ul>\r\n\r\n<p><img alt=\"\" src=\"http://phalcon-blog/assets/img/categories/default.png\" style=\"float:right; height:50px; width:50px\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>{{&quot;id&quot;:&quot;3&quot;, &quot;title&quot;:&quot;Image Gallery&quot;, &quot;class&quot;:&quot;gallery-3&quot;}}</p>\r\n',1,'2018-07-18 15:34:00','2018-07-26 17:25:00');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -273,6 +275,57 @@ LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
 INSERT INTO `posts` VALUES (1,8,2,'default.png','nazvanie','название','полное описание','описание',1,'2018-07-17 14:55:00','2018-07-17 15:16:00');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `slider_item`
+--
+
+DROP TABLE IF EXISTS `slider_item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `slider_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `slider_id` int(11) NOT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `position` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=ucs2;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `slider_item`
+--
+
+LOCK TABLES `slider_item` WRITE;
+/*!40000 ALTER TABLE `slider_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `slider_item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sliders`
+--
+
+DROP TABLE IF EXISTS `sliders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sliders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET ucs2 NOT NULL,
+  `active` int(2) NOT NULL DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sliders`
+--
+
+LOCK TABLES `sliders` WRITE;
+/*!40000 ALTER TABLE `sliders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -362,4 +415,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-27 10:38:53
+-- Dump completed on 2018-07-27 17:26:53

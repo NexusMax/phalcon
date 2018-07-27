@@ -1,0 +1,16 @@
+<?php 
+
+use App\Models\Images;
+
+?>
+
+
+<?php if(isset($gallery)): ?>
+<div class="popup-gallery">
+	<?php foreach($gallery as $key): $url = Images::render($imgUploadDir . $key['path']);?>
+	<a href="<?= $url ?>">
+		<img src="<?= $url ?>">
+	</a>
+	<?php endforeach; ?>
+</div>
+<?php endif; ?>
